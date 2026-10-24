@@ -34,30 +34,30 @@ public sealed class MainForm : Form
     private void BuildUi()
     {
         var heading = new Label {
-            Text = "InstaOrg", AutoSize = true, Font = new Font("Segoe UI", 27, FontStyle.Bold),
-            ForeColor = Color.FromArgb(101, 214, 255), Location = new Point(28, 20)
+            Text = "InstaOrg", AutoSize = true, Font = new Font("Segoe UI", 25, FontStyle.Bold),
+            ForeColor = Color.FromArgb(101, 214, 255), Location = new Point(28, 18)
         };
         Controls.Add(heading);
         Controls.Add(new Label {
             Text = "Your files. Organized instantly.", AutoSize = true,
-            ForeColor = Color.FromArgb(190, 207, 230), Location = new Point(32, 72)
+            ForeColor = Color.FromArgb(190, 207, 230), Location = new Point(32, 88)
         });
 
-        AddLabel("1. Choose a folder to scan", 32, 125);
-        sourceBox.SetBounds(32, 155, 660, 34);
+        AddLabel("1. Choose a folder to scan", 32, 140);
+        sourceBox.SetBounds(32, 170, 660, 34);
         StyleTextBox(sourceBox);
         chooseSource.Text = "Browse…";
-        chooseSource.SetBounds(704, 155, 150, 34);
+        chooseSource.SetBounds(704, 170, 150, 34);
         StyleButton(chooseSource, false);
         chooseSource.Click += (_, _) => BrowseForSource();
         Controls.Add(sourceBox);
         Controls.Add(chooseSource);
 
-        AddLabel("2. Choose where the Organized Files folder should be created", 32, 215);
-        destinationBox.SetBounds(32, 245, 660, 34);
+        AddLabel("2. Choose where the Organized Files folder should be created", 32, 230);
+        destinationBox.SetBounds(32, 260, 660, 34);
         StyleTextBox(destinationBox);
         chooseDestination.Text = "Browse…";
-        chooseDestination.SetBounds(704, 245, 150, 34);
+        chooseDestination.SetBounds(704, 260, 150, 34);
         StyleButton(chooseDestination, false);
         chooseDestination.Click += (_, _) => BrowseForDestination();
         Controls.Add(destinationBox);
@@ -66,27 +66,27 @@ public sealed class MainForm : Form
         var safety = new Label {
             Text = "SAFE MODE: InstaOrg copies files and leaves your originals untouched.",
             AutoSize = true, ForeColor = Color.FromArgb(111, 239, 202),
-            Location = new Point(32, 300)
+            Location = new Point(32, 315)
         };
         Controls.Add(safety);
 
         organizeButton.Text = "Organize My Files";
-        organizeButton.SetBounds(32, 340, 220, 46);
+        organizeButton.SetBounds(32, 355, 220, 46);
         StyleButton(organizeButton, true);
         organizeButton.Click += async (_, _) => await OrganizeAsync();
         Controls.Add(organizeButton);
 
-        progress.SetBounds(32, 405, 822, 18);
+        progress.SetBounds(32, 420, 822, 18);
         progress.Style = ProgressBarStyle.Continuous;
         Controls.Add(progress);
 
         status.Text = "Ready. Choose a source folder to begin.";
         status.AutoSize = true;
-        status.Location = new Point(32, 435);
+        status.Location = new Point(32, 450);
         status.ForeColor = Color.FromArgb(190, 207, 230);
         Controls.Add(status);
 
-        log.SetBounds(32, 465, 822, 145);
+        log.SetBounds(32, 480, 822, 125);
         log.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         log.BackColor = Color.FromArgb(22, 35, 56);
         log.ForeColor = Color.White;
